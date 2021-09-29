@@ -1,25 +1,32 @@
-float clockWidth
-float clockHeight
-
+float handX=width/2;
+float handY=height/2-100;
 
 void setup(){
-  size (640, 320);
-  clockWidth = random(-150, 150);
-  println(clockWidth);
-  
-  
-  
+  size (1280, 720, P2D);
+ 
 }
 
 void draw() {
-  //main part of the clock
+  
+     //main part of the clock
   stroke(70, 255, 216);
   fill(244, 255, 173);
   ellipseMode(CENTER);
-  ellipse(width/2, height/2, 200, 200);
+  ellipse(width/2, height/2, 400, 400);
+  stroke(0, 0 ,0);
+  line(handX, handY, width/2, height/2);
+  if(handX<width+100){
+    handX++;
+  }
+    else{handX--;
+  }
+
 }
 
-void draw() {
-  stroke(139, 66, 32);
-  text(
+void mousePressed() {
+  fill(139, 66, 32);
+  textSize(random (20, 40));
+  if(dist(mouseX, mouseY, width/2, height/2) < 200){
+  text("1", mouseX-10, mouseY+20);
+  }
 }
